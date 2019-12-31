@@ -9,13 +9,13 @@ jobs:
         with:
           submodules: true
       - name: redpen-github-pr-check
-        uses: tsuyoshicho/action-redpen@master
+        uses: tsuyoshicho/action-redpen@debug
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           redpen_flags: "doc/*"
       - name: redpen-github-pr-review
-        uses: tsuyoshicho/action-redpen@master
+        uses: tsuyoshicho/action-redpen@debug
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
