@@ -6,6 +6,10 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 redpen --version
 
+echo test run
+
+redpen -c config/redpen-conf-ja.xml -L ja -l 9999 -r plain "${INPUT_REDPEN_FLAGS:-'.'}"
+
 if [ "${INPUT_REPORTER}" == 'github-pr-review' ]; then
   redpen -c config/redpen-conf-ja.xml -L ja -l 9999 -r plain "${INPUT_REDPEN_FLAGS:-'.'}" 2>/dev/null \
     | reviewdog  -efm="%f:%l: %m" -name="redpen" -diff="git diff HEAD^" -reporter=github-pr-review -level="${INPUT_LEVEL}"
