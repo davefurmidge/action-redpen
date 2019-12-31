@@ -8,7 +8,7 @@ redpen --version
 
 echo test run
 
-redpen -c config/redpen-conf-ja.xml -L ja -l 9999 -r plain "${INPUT_REDPEN_FLAGS:-'.'}"
+find "${INPUT_REDPEN_FLAGS:-'.'}" -print0 | xargs -0 redpen -c config/redpen-conf-ja.xml -L ja -l 9999 -r plain
 
 if [ "${INPUT_REPORTER}" == 'github-pr-review' ]; then
   redpen -c config/redpen-conf-ja.xml -L ja -l 9999 -r plain "${INPUT_REDPEN_FLAGS:-'.'}" 2>/dev/null \
